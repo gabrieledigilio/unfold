@@ -1,0 +1,506 @@
+{
+  "devices": [
+    {
+      "id": "lamp",
+      "name": "LED desk lamp",
+      "subtitle": "Light \u00b7 balance \u00b7 current",
+      "componentIds": [
+        "led",
+        "driver",
+        "arm",
+        "base"
+      ]
+    },
+    {
+      "id": "drill",
+      "name": "Cordless drill",
+      "subtitle": "Motion \u00b7 torque \u00b7 energy",
+      "componentIds": [
+        "motor",
+        "gearbox",
+        "chuck",
+        "power"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "lamp",
+      "device": {
+        "name": "LED desk lamp",
+        "subtitle": "Light \u00b7 balance \u00b7 current",
+        "family": "Articulated LED lamp",
+        "configurationNote": "Generic LED desk lamp with an articulated arm; no particular manufacturer's construction is implied.",
+        "illustrationNote": "Conceptual model \u00b7 simplified assemblies",
+        "sourceIds": [
+          "doe-led",
+          "ti-led",
+          "physics-balance"
+        ]
+      },
+      "components": [
+        {
+          "id": "led",
+          "title": "LED module",
+          "eyebrow": "01 / LIGHT",
+          "short": "Electricity \u2192 light",
+          "role": "Turns electrical energy into light directed at your desk.",
+          "mechanism": "Current produces light in a semiconductor; a phosphor can convert some of that light to create a white blend.",
+          "assembly": "This illustration places the LED board beneath a shade, with a metal thermal path carrying heat away.",
+          "preview": {
+            "role": "Turns electricity into light.",
+            "mechanism": "A semiconductor emits light; phosphor helps make it white.",
+            "assembly": "LED board, optical cover and a path for heat to escape."
+          },
+          "relatedConceptIds": [
+            "led-light",
+            "heat-transfer"
+          ],
+          "sourceIds": [
+            "doe-led",
+            "energystar-led"
+          ]
+        },
+        {
+          "id": "driver",
+          "title": "LED driver",
+          "eyebrow": "02 / CONTROL",
+          "short": "Steady current \u2192 stable light",
+          "role": "Controls the electrical current supplied to the LED module.",
+          "mechanism": "A current regulator adjusts its output to maintain the intended LED current, while dimming changes that target or pulses the light.",
+          "assembly": "The illustrated driver board connects the power input, brightness control and LED module; real lamps may put it in an external adapter.",
+          "preview": {
+            "role": "Supplies controlled current to the LEDs.",
+            "mechanism": "Adjusting current or pulse timing changes brightness.",
+            "assembly": "Power input \u2192 driver board \u2192 LED module."
+          },
+          "relatedConceptIds": [
+            "constant-current",
+            "led-light"
+          ],
+          "sourceIds": [
+            "ti-led",
+            "ti-led-dimming"
+          ]
+        },
+        {
+          "id": "arm",
+          "title": "Articulated arm",
+          "eyebrow": "03 / POSITION",
+          "short": "Joints \u2192 reach",
+          "role": "Positions the light without moving the whole lamp.",
+          "mechanism": "Gravity turns the arm around its pivots; joint friction or a balancing spring must oppose that turning effect to hold the head still.",
+          "assembly": "Linked arm sections meet at pivots, with the head at one end and the base supporting the other.",
+          "preview": {
+            "role": "Moves the light to your workspace.",
+            "mechanism": "Joint resistance counters gravity's turning effect.",
+            "assembly": "Arm sections joined by pivots."
+          },
+          "relatedConceptIds": [
+            "balance"
+          ],
+          "sourceIds": [
+            "physics-torque",
+            "anglepoise-balance"
+          ]
+        },
+        {
+          "id": "base",
+          "title": "Weighted base",
+          "eyebrow": "04 / SUPPORT",
+          "short": "Mass \u2192 stability",
+          "role": "Supports the arm and helps the lamp resist tipping.",
+          "mechanism": "A broad, heavy base helps keep the combined center of mass above the support area as the head moves outward.",
+          "assembly": "The illustrated base holds a dense weight beneath a cover and connects to the arm's lower pivot.",
+          "preview": {
+            "role": "Keeps the lamp upright.",
+            "mechanism": "The combined center of mass stays over the footprint.",
+            "assembly": "Weight, outer cover and arm mount."
+          },
+          "relatedConceptIds": [
+            "balance"
+          ],
+          "sourceIds": [
+            "physics-balance"
+          ]
+        }
+      ],
+      "concepts": [
+        {
+          "id": "led-light",
+          "title": "LED light",
+          "eyebrow": "SEMICONDUCTORS",
+          "summary": "The lamp and your laptop both use LEDs to produce light.",
+          "explanation": "An LED produces light when current flows through its semiconductor. A white-light design can use phosphor to convert part of a blue LED's output. A lamp lights your desk; the MacBook's mini-LED backlight illuminates LCD pixels.",
+          "tryThis": "Compare the lamp's LED module with the MacBook display.",
+          "relatedComponentIds": [
+            "led",
+            "driver"
+          ],
+          "sourceIds": [
+            "doe-led",
+            "energystar-led"
+          ],
+          "scopeNote": "Shared principle; LED size, optics and control differ between the objects."
+        },
+        {
+          "id": "constant-current",
+          "title": "Current control",
+          "eyebrow": "ELECTRONICS",
+          "summary": "Control current to control an LED's output.",
+          "explanation": "An LED's current can change steeply with a small voltage change. A driver regulates current instead of simply applying a fixed voltage. Brightness can be varied by changing current or switching it rapidly on and off.",
+          "tryThis": "Change brightness and watch the light output respond.",
+          "relatedComponentIds": [
+            "driver",
+            "led"
+          ],
+          "sourceIds": [
+            "ti-led",
+            "ti-led-dimming"
+          ]
+        },
+        {
+          "id": "balance",
+          "title": "Balance & torque",
+          "eyebrow": "MECHANICS",
+          "summary": "Moving the head changes the turning effect of its weight.",
+          "explanation": "The farther a load extends horizontally from a pivot, the more torque its weight produces. The arm must resist that torque, and the whole lamp stays upright while its combined center of mass remains over the base's support area.",
+          "tryThis": "Compare the lamp's reach with the width of its base.",
+          "relatedComponentIds": [
+            "arm",
+            "base"
+          ],
+          "sourceIds": [
+            "physics-torque",
+            "physics-balance"
+          ]
+        }
+      ],
+      "clickJourney": [
+        {
+          "component": "driver",
+          "title": "Control",
+          "body": "The driver regulates current for the LEDs."
+        },
+        {
+          "component": "led",
+          "title": "Light",
+          "body": "The LED module turns part of that electrical energy into light."
+        },
+        {
+          "component": "arm",
+          "title": "Direction",
+          "body": "The arm positions the head where the light is needed."
+        }
+      ],
+      "connections": [
+        {
+          "conceptId": "led-light",
+          "label": "MacBook display",
+          "reason": "Both create light with LEDs.",
+          "fromComponent": "led",
+          "toObject": "macbook",
+          "toComponent": "display"
+        },
+        {
+          "conceptId": "heat-transfer",
+          "label": "MacBook cooling",
+          "reason": "Both need a path for heat to escape.",
+          "fromComponent": "led",
+          "toObject": "macbook",
+          "toComponent": "cooling"
+        }
+      ],
+      "sources": [
+        {
+          "id": "doe-led",
+          "title": "LED Basics",
+          "publisher": "U.S. Department of Energy",
+          "url": "https://www.energy.gov/cmei/ssl/led-basics",
+          "scope": "White LED light, phosphor conversion and lighting control."
+        },
+        {
+          "id": "energystar-led",
+          "title": "Learn About LED Lighting",
+          "publisher": "ENERGY STAR",
+          "url": "https://www.energystar.gov/products/learn-about-led-lighting",
+          "scope": "Semiconductor light emission and thermal management."
+        },
+        {
+          "id": "ti-led",
+          "title": "LED driver basics",
+          "publisher": "Texas Instruments",
+          "url": "https://www.ti.com/video/series/led-driver-basics.html",
+          "scope": "Current control and analog/PWM dimming."
+        },
+        {
+          "id": "ti-led-dimming",
+          "title": "Dimming Methods: Analog Dimming",
+          "publisher": "Texas Instruments",
+          "url": "https://www.ti.com/video/5780118237001",
+          "scope": "Regulating LED current and controlling brightness."
+        },
+        {
+          "id": "physics-torque",
+          "title": "The Second Condition for Equilibrium",
+          "publisher": "OpenStax",
+          "url": "https://openstax.org/books/college-physics/pages/9-2-the-second-condition-for-equilibrium",
+          "scope": "Torque, pivot location and perpendicular lever arm."
+        },
+        {
+          "id": "physics-balance",
+          "title": "Conditions for Static Equilibrium",
+          "publisher": "OpenStax",
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/12-1-conditions-for-static-equilibrium",
+          "scope": "Center of mass, support area and tipping."
+        },
+        {
+          "id": "anglepoise-balance",
+          "title": "How to check the balance of your Anglepoise Lamp",
+          "publisher": "Anglepoise",
+          "url": "https://support.anglepoise.com/hc/en-gb/articles/360007387757-How-to-check-the-balance-of-your-Anglepoise-Lamp",
+          "scope": "Manufacturer example of spring forces and pivot friction holding an articulated lamp; not a claim that this conceptual lamp is an Anglepoise."
+        }
+      ]
+    },
+    {
+      "id": "drill",
+      "device": {
+        "name": "Cordless drill",
+        "subtitle": "Motion \u00b7 torque \u00b7 energy",
+        "family": "Brushless drill/driver",
+        "configurationNote": "Generic brushless cordless drill with a lithium-ion pack; no particular manufacturer's layout, voltage or performance is implied.",
+        "illustrationNote": "Conceptual model \u00b7 simplified assemblies",
+        "sourceIds": [
+          "motor-principles",
+          "gear-principles",
+          "bosch-chuck",
+          "doe-batteries"
+        ]
+      },
+      "components": [
+        {
+          "id": "motor",
+          "title": "Brushless motor",
+          "eyebrow": "01 / MOTION",
+          "short": "Electricity \u2192 rotation",
+          "role": "Converts electrical power into rotation for the gearbox.",
+          "mechanism": "Electronics energize coils in sequence, creating magnetic forces that keep a permanent-magnet rotor turning.",
+          "assembly": "The conceptual motor contains stationary copper coils around a magnetic rotor supported by a shaft and bearings.",
+          "preview": {
+            "role": "Turns electrical power into rotation.",
+            "mechanism": "Sequenced coil currents keep a magnetic rotor turning.",
+            "assembly": "Coils around a rotor, shaft and bearings."
+          },
+          "relatedConceptIds": [
+            "electromagnetism",
+            "heat-transfer"
+          ],
+          "sourceIds": [
+            "motor-principles"
+          ]
+        },
+        {
+          "id": "gearbox",
+          "title": "Reduction gears",
+          "eyebrow": "02 / TORQUE",
+          "short": "Speed \u2192 torque",
+          "role": "Reduces motor speed and increases the torque available at the chuck.",
+          "mechanism": "Meshing gears trade rotational speed for turning force; friction means the output receives less power than the motor supplies.",
+          "assembly": "The illustrated gear module sits between the motor shaft and chuck; its shapes explain reduction without reproducing a particular drill's gear train.",
+          "preview": {
+            "role": "Trades speed for more torque.",
+            "mechanism": "Gear ratio sets the speed reduction and ideal torque gain.",
+            "assembly": "A compact gear train links motor and chuck."
+          },
+          "relatedConceptIds": [
+            "gear-reduction",
+            "friction"
+          ],
+          "sourceIds": [
+            "gear-principles"
+          ]
+        },
+        {
+          "id": "chuck",
+          "title": "Three-jaw chuck",
+          "eyebrow": "03 / GRIP",
+          "short": "Clamp \u2192 grip",
+          "role": "Centers and grips a drill bit so it turns with the output shaft.",
+          "mechanism": "Three jaws move inward together; their clamping force creates friction that resists a round bit slipping.",
+          "assembly": "A rotating sleeve surrounds three guided jaws connected to the drill's output shaft.",
+          "preview": {
+            "role": "Holds and centers the bit.",
+            "mechanism": "Three jaws clamp the shank and resist slip.",
+            "assembly": "Sleeve, guided jaws and output shaft."
+          },
+          "relatedConceptIds": [
+            "friction",
+            "gear-reduction"
+          ],
+          "sourceIds": [
+            "bosch-chuck",
+            "physics-friction"
+          ]
+        },
+        {
+          "id": "power",
+          "title": "Battery pack",
+          "eyebrow": "04 / ENERGY",
+          "short": "Chemistry \u2192 current",
+          "role": "Stores the energy that powers the drill away from a socket.",
+          "mechanism": "Chemical reactions drive electrons around the external circuit while ions move inside the cells, supplying power to the motor controller.",
+          "assembly": "The conceptual pack groups cells, electrical contacts and control electronics inside a protective enclosure.",
+          "preview": {
+            "role": "Stores energy for cordless use.",
+            "mechanism": "Chemical reactions drive current through the motor circuit.",
+            "assembly": "Cells and contacts within a protective pack."
+          },
+          "relatedConceptIds": [
+            "energy-storage",
+            "electromagnetism"
+          ],
+          "sourceIds": [
+            "doe-batteries"
+          ]
+        }
+      ],
+      "concepts": [
+        {
+          "id": "electromagnetism",
+          "title": "Electric motors",
+          "eyebrow": "ELECTROMAGNETISM",
+          "summary": "Current in coils creates the magnetic forces that turn a rotor.",
+          "explanation": "A brushless motor switches current between coils in sequence. Their magnetic fields act on the rotor's permanent magnets to sustain rotation. The same broad conversion from electricity to motion also powers the laptop's cooling fans.",
+          "tryThis": "Follow battery \u2192 motor \u2192 gears \u2192 chuck.",
+          "relatedComponentIds": [
+            "motor",
+            "power"
+          ],
+          "sourceIds": [
+            "motor-principles"
+          ],
+          "scopeNote": "Shared motor principle; no claim that the drill and laptop use identical motor designs."
+        },
+        {
+          "id": "gear-reduction",
+          "title": "Gear reduction",
+          "eyebrow": "MECHANICS",
+          "summary": "Lower output speed can provide more output torque.",
+          "explanation": "In an ideal 4:1 reduction, four input turns produce one output turn and four times the input torque. Real gears lose some power to friction and have strength limits. The ratio trades speed for torque; it does not create energy.",
+          "tryThis": "Compare the fast motor shaft with the slower chuck.",
+          "relatedComponentIds": [
+            "gearbox",
+            "chuck"
+          ],
+          "sourceIds": [
+            "gear-principles"
+          ],
+          "scopeNote": "The 4:1 ratio is an illustrative example, not this model's specification."
+        },
+        {
+          "id": "friction",
+          "title": "Grip & friction",
+          "eyebrow": "CONTACT FORCES",
+          "summary": "Friction lets the chuck transmit torque to a round bit.",
+          "explanation": "The chuck presses its jaws against the bit. Static friction opposes relative slipping, letting the bit turn with the chuck up to the available grip. In the gearbox, unwanted friction instead dissipates some energy as heat.",
+          "tryThis": "Trace torque from the gears through the jaws to the bit.",
+          "relatedComponentIds": [
+            "chuck",
+            "gearbox"
+          ],
+          "sourceIds": [
+            "bosch-chuck",
+            "physics-friction",
+            "gear-principles"
+          ]
+        }
+      ],
+      "clickJourney": [
+        {
+          "component": "power",
+          "title": "Energy",
+          "body": "The battery supplies power to the motor electronics."
+        },
+        {
+          "component": "motor",
+          "title": "Rotation",
+          "body": "Magnetic forces turn the motor shaft."
+        },
+        {
+          "component": "gearbox",
+          "title": "Torque",
+          "body": "Reduction gears slow the rotation and increase torque."
+        },
+        {
+          "component": "chuck",
+          "title": "Grip",
+          "body": "The chuck transfers that torque into the bit."
+        }
+      ],
+      "connections": [
+        {
+          "conceptId": "energy-storage",
+          "label": "MacBook battery",
+          "reason": "Same energy-storage principle, different demand.",
+          "fromComponent": "power",
+          "toObject": "macbook",
+          "toComponent": "power"
+        },
+        {
+          "conceptId": "electromagnetism",
+          "label": "MacBook fans",
+          "reason": "Electric motors turn both assemblies.",
+          "fromComponent": "motor",
+          "toObject": "macbook",
+          "toComponent": "cooling"
+        },
+        {
+          "conceptId": "constant-current",
+          "label": "Lamp driver",
+          "reason": "Both use electronics to control current.",
+          "fromComponent": "motor",
+          "toObject": "lamp",
+          "toComponent": "driver"
+        }
+      ],
+      "sources": [
+        {
+          "id": "motor-principles",
+          "title": "Brushless Motor Structure and Principle of Operation",
+          "publisher": "Oriental Motor",
+          "url": "https://www.orientalmotor.com/brushless-dc-motors-gear-motors/technology/speed-control-overview.html",
+          "scope": "Coils, permanent-magnet rotor and electronic commutation."
+        },
+        {
+          "id": "gear-principles",
+          "title": "Gearhead Selection for Stepper Motors",
+          "publisher": "Oriental Motor",
+          "url": "https://blog.orientalmotor.com/gearhead-selection-for-stepper-motors",
+          "scope": "General reduction, output speed, torque and efficiency relationships; no stepper motor is implied in the drill."
+        },
+        {
+          "id": "bosch-chuck",
+          "title": "Guide to drills",
+          "publisher": "Bosch DIY",
+          "url": "https://www.bosch-diy.com/gb/en/all-about-diy/encyclopedia/guide-to-drills",
+          "scope": "Self-centering three-jaw chuck and bit shank grip."
+        },
+        {
+          "id": "physics-friction",
+          "title": "Friction",
+          "publisher": "OpenStax",
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/6-2-friction",
+          "scope": "Static friction, normal force and resistance to relative sliding."
+        },
+        {
+          "id": "doe-batteries",
+          "title": "DOE Explains: Batteries",
+          "publisher": "U.S. Department of Energy",
+          "url": "https://www.energy.gov/science/doe-explainsbatteries",
+          "scope": "Chemical energy storage, external electron flow and internal ion movement."
+        }
+      ]
+    }
+  ]
+}

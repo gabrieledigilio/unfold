@@ -1,0 +1,36 @@
+{
+  "retrievedAt": "2026-10-17",
+  "rightsNote": "Apple reference images are loaded from the original Apple URLs; no image binaries are redistributed in this repository. Apple retains copyright. These external images are excluded from the project MIT license.",
+  "externalReferences": [
+    {
+      "sourceURL": "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111902_mbp14-silver2.png",
+      "pageURL": "https://support.apple.com/en-us/111902",
+      "subject": "Front view of the silver MacBook Pro (14-inch, 2021)",
+      "attribution": "Product image \u00a9 Apple",
+      "mimeType": "image/png",
+      "transparentBackground": true,
+      "use": "Product identification and hero photograph",
+      "width": 1066,
+      "height": 684,
+      "bytes": 303435,
+      "sha256": "251338128a11c118c7659a682dda9094b25767dfab85c769dfa322ead191af29",
+      "edited": false,
+      "originalLocalPath": "assets/macbook-pro-14-2021.png"
+    },
+    {
+      "sourceURL": "https://cdsassets.apple.com/live/SZLF0YNV/service-documentation/ssr/mbp-14-2021-j314/100550-ev/TP2066_EV_CowlingUpdate_1760.jpg",
+      "pageURL": "https://support.apple.com/en-us/100550",
+      "subject": "Numbered manufacturer exploded-view reference for MacBook Pro (14-inch, 2021)",
+      "attribution": "Service illustration \u00a9 Apple",
+      "mimeType": "image/jpeg",
+      "transparentBackground": false,
+      "use": "Optional source/reference modal; retain original labels and link to source part list",
+      "width": 1760,
+      "height": 3540,
+      "bytes": 847712,
+      "sha256": "ca793580498d441dafd8dadaf31567c0767f073c8a0aa9871a0304fbb160933f",
+      "edited": false,
+      "originalLocalPath": "assets/macbook-pro-14-2021-exploded.jpg"
+    }
+  ]
+}

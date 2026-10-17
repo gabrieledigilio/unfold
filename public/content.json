@@ -1,0 +1,348 @@
+{
+  "device": {
+    "name": "MacBook Pro 14-inch",
+    "subtitle": "2021 \u00b7 Apple silicon",
+    "family": "M1 Pro / M1 Max",
+    "configurationNote": "The 2021 14-inch model shipped with M1 Pro or M1 Max. This demo does not identify a particular processor, memory or storage configuration.",
+    "illustrationNote": "Conceptual component map. Positions and spacing are simplified.",
+    "heroImage": "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111902_mbp14-silver2.png",
+    "heroAlt": "Apple's front view of the silver 14-inch MacBook Pro introduced in 2021",
+    "referenceImage": "https://cdsassets.apple.com/live/SZLF0YNV/service-documentation/ssr/mbp-14-2021-j314/100550-ev/TP2066_EV_CowlingUpdate_1760.jpg",
+    "referenceAlt": "Apple's numbered exploded-view reference for the 14-inch MacBook Pro introduced in 2021",
+    "sourceIds": [
+      "apple-specs",
+      "apple-parts"
+    ]
+  },
+  "components": [
+    {
+      "id": "display",
+      "title": "Liquid Retina XDR",
+      "eyebrow": "01 / DISPLAY",
+      "short": "An image, built from light.",
+      "preview": {
+        "role": "Turns the computer's image data into visible light. The backlight and LCD pixels work together to form what you see.",
+        "mechanism": "Mini-LED zones adjust the backlight's brightness, while LCD pixels control the image. Dark areas can receive less light than bright ones.",
+        "assembly": "A hinged display module brings the enclosure and screen together. The illustrated layers explain its function, not its exact construction."
+      },
+      "role": "Turns pixel values into the image you see. Its backlight and LCD layer work together to show bright details beside darker areas.",
+      "mechanism": "Tiny LEDs supply light behind LCD pixels. Groups of LEDs can dim independently, while the LCD layer controls the image. ProMotion changes the refresh rate with the content, up to 120Hz on this model.",
+      "assembly": "The screen belongs to a hinged display assembly. Apple lists the display as one service part; the layers in this illustration explain the principle rather than its exact manufacturing construction.",
+      "stat": {
+        "value": "14.2\u2033",
+        "label": "Display diagonal"
+      },
+      "relatedConceptIds": [
+        "local-dimming",
+        "energy-storage"
+      ],
+      "sourceIds": [
+        "apple-specs",
+        "apple-launch",
+        "apple-display-primer",
+        "apple-parts"
+      ]
+    },
+    {
+      "id": "chip",
+      "title": "Apple silicon",
+      "eyebrow": "02 / COMPUTE",
+      "short": "Many specialists. One system.",
+      "preview": {
+        "role": "Runs instructions and builds graphics. This MacBook family combines CPU, GPU and other specialized processing functions in an Apple silicon system.",
+        "mechanism": "CPU and GPU handle different work while accessing shared memory. They can use common data without separate copies for each processor.",
+        "assembly": "The main electronics form a logic-board assembly. Chip, memory and storage configurations vary; this model illustrates their roles, not exact placement."
+      },
+      "role": "Runs app instructions, builds graphics and coordinates specialized work such as video processing. This model family uses M1 Pro or M1 Max, with capabilities that depend on its configuration.",
+      "mechanism": "CPU cores carry out instructions; GPU cores work on many similar operations in parallel. A shared memory architecture lets these processors access common data without copying it between separate CPU and graphics memory pools.",
+      "assembly": "Apple services the main electronics as a logic-board assembly. Processor, memory and storage configurations vary. The drawing shows functional relationships rather than the physical layout of the silicon.",
+      "stat": {
+        "value": "SoC",
+        "label": "System on a chip"
+      },
+      "relatedConceptIds": [
+        "unified-memory",
+        "heat-transfer"
+      ],
+      "sourceIds": [
+        "apple-chip",
+        "apple-silicon-foundations",
+        "apple-parts"
+      ]
+    },
+    {
+      "id": "trackpad",
+      "title": "Force Touch trackpad",
+      "eyebrow": "03 / INPUT",
+      "short": "Your touch becomes a signal.",
+      "preview": {
+        "role": "Turns finger movement and pressure into input, then sends tactile feedback back to your hand. Sensing and responding are separate jobs.",
+        "mechanism": "Sensors detect how firmly you press. A powered haptic mechanism creates the click sensation; a deeper press can trigger Force Click.",
+        "assembly": "A trackpad module sits in the top case, connected by a flex cable. Alignment shims help position it within the enclosure."
+      },
+      "role": "Translates finger movement, gestures and pressure into commands. It also creates tactile feedback, letting a touch surface communicate clicks and other interface events through your fingertips.",
+      "mechanism": "Pressure sensors detect how firmly you press. A click produces a tactile response, and a deeper press can trigger Force Click. Software can also use haptics for events such as aligning objects.",
+      "assembly": "Apple's service manual describes a trackpad module, a flex cable and alignment shims in the top case. The conceptual cross-section does not specify the number or construction of its sensors.",
+      "stat": {
+        "value": "Force Touch",
+        "label": "Pressure input + haptic output"
+      },
+      "relatedConceptIds": [
+        "haptic-feedback",
+        "energy-storage"
+      ],
+      "sourceIds": [
+        "apple-specs",
+        "apple-force-touch",
+        "apple-trackpad-assembly"
+      ]
+    },
+    {
+      "id": "power",
+      "title": "Battery & power",
+      "eyebrow": "04 / ENERGY",
+      "short": "Chemistry that keeps you moving.",
+      "preview": {
+        "role": "Stores chemical energy to power the computer away from a socket. Charging transfers energy back into the battery for later use.",
+        "mechanism": "Chemical reactions drive electrons around the external circuit while ions move inside the cell. Charging puts energy back into the chemistry.",
+        "assembly": "This model has a 70 Wh lithium-polymer battery. Apple's service parts group it with the top case and keyboard assembly."
+      },
+      "role": "Stores energy for use away from a power socket. The battery powers the computer's electronics; charging transfers electrical energy back into chemical storage for later use.",
+      "mechanism": "During discharge, chemical reactions drive electrons through an external circuit. Charged particles move inside the cell to balance that flow. Recharging reverses the overall storage process; it does not simply refill a container with electrons.",
+      "assembly": "Apple lists a 70Wh lithium-polymer battery for the 14-inch model. Its repair parts group the battery with the top case and keyboard; this diagram is a functional view.",
+      "stat": {
+        "value": "70 Wh",
+        "label": "Nominal battery energy"
+      },
+      "relatedConceptIds": [
+        "energy-storage",
+        "heat-transfer"
+      ],
+      "sourceIds": [
+        "apple-specs",
+        "doe-batteries",
+        "apple-parts"
+      ]
+    },
+    {
+      "id": "cooling",
+      "title": "Thermal system",
+      "eyebrow": "05 / COOLING",
+      "short": "A path for heat to leave.",
+      "preview": {
+        "role": "Moves waste heat away from working electronics. Fans help transfer that heat to surrounding air so it does not keep accumulating.",
+        "mechanism": "Heat travels through thermal parts into moving air. Fans increase airflow; they carry heat away rather than create cold air.",
+        "assembly": "Left and right fans work with matching ducts inside the enclosure. This illustration shows their purpose, not a measured airflow path."
+      },
+      "role": "Keeps heat from accumulating around the electronics. Fans move air through the thermal system so the computer can transfer more of its waste heat to its surroundings.",
+      "mechanism": "Heat flows from warmer components toward cooler surroundings. The thermal system transfers heat into moving air; temperature monitoring controls when additional airflow is needed. Demanding work can make the fans run faster and sound louder.",
+      "assembly": "Apple's parts list identifies left and right fans and matching ducts. These work within the enclosure's airflow path. Animated arrows illustrate heat transport, not a measured airflow map of this computer.",
+      "stat": {
+        "value": "2 fans",
+        "label": "Left and right modules"
+      },
+      "relatedConceptIds": [
+        "heat-transfer",
+        "electromagnetism"
+      ],
+      "sourceIds": [
+        "apple-fans",
+        "apple-parts",
+        "apple-launch",
+        "nasa-heat",
+        "motor-principles"
+      ]
+    }
+  ],
+  "clickJourney": [
+    {
+      "component": "trackpad",
+      "title": "A press becomes input",
+      "body": "Pressure sensors detect your press. The computer receives an input event, while the trackpad's powered haptic mechanism gives your finger a click sensation."
+    },
+    {
+      "component": "chip",
+      "title": "Software decides what happens",
+      "body": "Software interprets the click in context: select a file, press a button, or open an app. The processor executes the instructions behind that response."
+    },
+    {
+      "component": "display",
+      "title": "The response becomes visible",
+      "body": "The computer prepares an updated image. The display turns pixel values into light patterns, so you see a highlighted item, a new window, or another response."
+    }
+  ],
+  "concepts": [
+    {
+      "id": "local-dimming",
+      "title": "Light, in zones",
+      "eyebrow": "OPTICS",
+      "summary": "Contrast improves when dark image regions receive less backlight.",
+      "explanation": "An LCD image needs illumination. A mini-LED backlight is divided into controllable regions. Dim the regions behind a dark scene and the black areas become darker; brighten others to preserve highlights. A zone still covers many pixels, so light can spread around a bright object on a dark background.",
+      "tryThis": "Imagine a white cursor on a black screen: the LCD draws the cursor, while a nearby backlight zone illuminates more than that one shape.",
+      "relatedComponentIds": [
+        "display"
+      ],
+      "sourceIds": [
+        "apple-display-primer"
+      ],
+      "scopeNote": "General mini-LED local-dimming principle. The source explains an iPad display; no iPad-specific LED or zone counts are assigned to this MacBook."
+    },
+    {
+      "id": "unified-memory",
+      "title": "One shared workspace",
+      "eyebrow": "COMPUTING",
+      "summary": "Different processors can work with a common pool of data.",
+      "explanation": "Think of the CPU and GPU as specialists using the same workbench. Unified memory lets them access common data without mandatory copies between separate CPU and graphics memory pools. It can reduce data movement; it does not make memory unlimited or replace permanent storage.",
+      "tryThis": "When editing a photo, imagine the CPU organizing the task and the GPU applying image operations to data in that shared space.",
+      "relatedComponentIds": [
+        "chip"
+      ],
+      "sourceIds": [
+        "apple-silicon-foundations",
+        "apple-chip"
+      ]
+    },
+    {
+      "id": "haptic-feedback",
+      "title": "A click you can feel",
+      "eyebrow": "HUMAN + MACHINE",
+      "summary": "An output signal can become a sensation in your hand.",
+      "explanation": "Input and feedback are separate steps. The trackpad senses pressure, software interprets it, and a powered haptic mechanism creates a tactile event. Apple notes that a Force Touch trackpad does not produce its clicks or other haptic feedback when it is off.",
+      "tryThis": "Compare a gentle touch with a firmer press. The interface can respond to pressure, then send information back through a tactile cue.",
+      "relatedComponentIds": [
+        "trackpad"
+      ],
+      "sourceIds": [
+        "apple-force-touch"
+      ]
+    },
+    {
+      "id": "energy-storage",
+      "title": "Energy, held in chemistry",
+      "eyebrow": "ELECTROCHEMISTRY",
+      "summary": "A rechargeable battery stores chemical potential energy.",
+      "explanation": "During discharge, electrons flow through the outside circuit while ions move inside the battery. Charging puts energy back into the chemistry. Watt-hours measure stored energy; watts describe the rate of using it. In an ideal example, a 70Wh store powering a steady 10W load would last seven hours.",
+      "tryThis": "Keep the energy store fixed and double the power demand. Ideal runtime halves; a real laptop's varying workload and losses make it less predictable.",
+      "example": {
+        "energyWh": 70,
+        "powerW": 10,
+        "idealRuntimeHours": 7,
+        "label": "Simplified calculation, not a battery-life prediction"
+      },
+      "relatedComponentIds": [
+        "power",
+        "display",
+        "trackpad",
+        "cooling"
+      ],
+      "sourceIds": [
+        "doe-batteries",
+        "apple-specs"
+      ],
+      "scopeNote": "Battery behavior is general; the runtime example is a dimensional calculation, not a measurement."
+    },
+    {
+      "id": "heat-transfer",
+      "title": "Giving heat a way out",
+      "eyebrow": "THERMODYNAMICS",
+      "summary": "Cooling moves thermal energy to a cooler place.",
+      "explanation": "Conduction transfers heat through materials. Convection carries energy with moving fluid, including air. A laptop uses connected thermal parts and airflow to move heat away from its electronics. A fan increases airflow; it does not create cold air.",
+      "tryThis": "Imagine holding the workload steady and increasing airflow. Heat can leave more easily, although the final temperature also depends on room temperature and the thermal path.",
+      "relatedComponentIds": [
+        "cooling",
+        "chip",
+        "power"
+      ],
+      "sourceIds": [
+        "nasa-heat",
+        "apple-fans"
+      ],
+      "scopeNote": "Conceptual heat-transfer model; no component temperatures or fan-speed measurements are implied."
+    }
+  ],
+  "sources": [
+    {
+      "id": "apple-specs",
+      "title": "MacBook Pro (14-inch, 2021) \u2014 Technical Specifications",
+      "url": "https://support.apple.com/en-us/111902",
+      "publisher": "Apple",
+      "scope": "Model family, display, trackpad and nominal battery specifications."
+    },
+    {
+      "id": "apple-launch",
+      "title": "2021 MacBook Pro introduction",
+      "url": "https://www.apple.com/newsroom/2021/10/apple-unveils-game-changing-macbook-pro/",
+      "publisher": "Apple",
+      "scope": "Mini-LED display, ProMotion and thermal-system overview."
+    },
+    {
+      "id": "apple-display-primer",
+      "title": "Liquid Retina XDR display technology",
+      "url": "https://support.apple.com/en-us/102255",
+      "publisher": "Apple",
+      "scope": "General LCD, mini-LED and local-dimming explanation. This article covers iPad Pro; its numeric specifications are not used for the MacBook."
+    },
+    {
+      "id": "apple-chip",
+      "title": "Introducing M1 Pro and M1 Max",
+      "url": "https://www.apple.com/newsroom/2021/10/introducing-m1-pro-and-m1-max-the-most-powerful-chips-apple-has-ever-built/",
+      "publisher": "Apple",
+      "scope": "System-on-chip architecture, specialized processors and unified memory in this model family."
+    },
+    {
+      "id": "apple-silicon-foundations",
+      "title": "Apple silicon: unified-memory foundations",
+      "url": "https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/",
+      "publisher": "Apple",
+      "scope": "Shared memory and data movement in the M1 architecture, extended by M1 Pro and M1 Max."
+    },
+    {
+      "id": "apple-force-touch",
+      "title": "Force Click and haptic feedback",
+      "url": "https://support.apple.com/en-us/102309",
+      "publisher": "Apple",
+      "scope": "Pressure sensing, tactile feedback and behavior when powered off."
+    },
+    {
+      "id": "apple-trackpad-assembly",
+      "title": "Trackpad and Trackpad Flex Cable",
+      "url": "https://support.apple.com/en-us/100556",
+      "publisher": "Apple",
+      "scope": "2021 14-inch model: module, flex cable and alignment shims. Used as an assembly reference, not a repair tutorial."
+    },
+    {
+      "id": "apple-parts",
+      "title": "Exploded View and Orderable Parts",
+      "url": "https://support.apple.com/en-us/100550",
+      "publisher": "Apple",
+      "scope": "2021 14-inch model: service assemblies, dual fans and ducts."
+    },
+    {
+      "id": "apple-fans",
+      "title": "About fans and fan noise",
+      "url": "https://support.apple.com/en-us/101576",
+      "publisher": "Apple",
+      "scope": "Temperature monitoring and cooling airflow."
+    },
+    {
+      "id": "doe-batteries",
+      "title": "DOE Explains: Batteries",
+      "url": "https://www.energy.gov/science/doe-explainsbatteries",
+      "publisher": "U.S. Department of Energy",
+      "scope": "Chemical energy storage, external electron flow and internal ion movement."
+    },
+    {
+      "id": "nasa-heat",
+      "title": "NASA eClips: Insulators",
+      "url": "https://assets.science.nasa.gov/content/dam/science/cds/eclips/assets/documents/educator-guide-our-world-insulators.pdf",
+      "publisher": "NASA",
+      "scope": "Conduction, convection and heat moving from warmer to cooler regions."
+    }
+  ],
+  "editorial": {
+    "asOf": "2026-10-17",
+    "mode": "curated-demo",
+    "summary": "Original educational summaries from linked primary references. Product family is verified; individual configuration is unspecified. The interface's mechanism drawings explain concepts and are not measured internal layouts.",
+    "imageAttribution": "Product image and manufacturer's exploded-view reference \u00a9 Apple. Original UNFOLD illustrations are separate from Apple's reference imagery."
+  }
+}

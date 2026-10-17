@@ -1,0 +1,19 @@
+{
+  "name": "unfold-object-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Photo-to-blueprint learning interface powered by Gemma 4",
+  "type": "module",
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "test": "node --test tests/*.test.mjs && node tests/prototype.cjs && node tests/frontend-ai.cjs"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrieledigilio/unfold.git"
+  }
+}
