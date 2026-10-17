@@ -1,0 +1,55 @@
+/* All pitch artwork is original SVG; animations end in a readable still frame. */
+.pitch-art-scene{width:100%;max-width:780px;margin:auto;position:relative;color:var(--ink);aspect-ratio:640/520;isolation:isolate}
+.pitch-art-scene:before{content:"";position:absolute;inset:11% 8%;z-index:-1;background:radial-gradient(ellipse,color-mix(in srgb,var(--cyan) 10%,transparent),transparent 67%);pointer-events:none}
+.pitch-art-scene svg{width:100%;height:100%;overflow:visible;stroke:var(--ink);stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+.pitch-art-scene svg *{vector-effect:non-scaling-stroke}
+.pitch-art-solid{fill:var(--bg);fill-opacity:.92}
+.pitch-art-guides{stroke:var(--ink);stroke-width:.7;opacity:.13}
+.pitch-art-dashed{stroke-dasharray:3 8}
+.pitch-art-measure{stroke:var(--cyan);stroke-width:.9;opacity:.52}
+.pitch-art-label{stroke:none;fill:var(--cyan);font:10px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:1.7px}
+.pitch-art-label-large{font-size:15px;letter-spacing:4px;fill:var(--ink)}
+.pitch-art-object{stroke-width:1.75}
+.pitch-art-keyboard{stroke-width:.65;opacity:.66}
+.pitch-art-screen-grid{stroke:var(--cyan);stroke-width:.55;opacity:.18}
+.pitch-art-accent{stroke:var(--cyan);stroke-width:2}
+.pitch-art-dot{fill:var(--cyan);stroke:none}
+.pitch-art-ring{fill:none;stroke:var(--cyan);stroke-width:1.15}
+.pitch-art-cursor{stroke:var(--cyan);stroke-width:1.2;animation:pitch-art-focus 1.4s cubic-bezier(.2,.7,.2,1) both;transform-origin:288px 223px}
+.pitch-art-assembled{animation:pitch-art-appear 1.1s cubic-bezier(.2,.75,.2,1) both}
+.pitch-art-layer{animation:pitch-art-separate 1.4s cubic-bezier(.2,.75,.2,1) both}
+.pitch-art-layer-middle{animation-delay:.06s}.pitch-art-layer-bottom{animation-delay:.12s}
+.pitch-art-callouts{stroke:var(--cyan);stroke-width:1;animation:pitch-art-labels 1.6s ease both}
+.pitch-art-callouts .pitch-art-label{font-size:16px;letter-spacing:1px}.pitch-art-callouts .pitch-art-callout-overline{font-size:9px;letter-spacing:1.4px;opacity:.65}.pitch-art-footnote{font-size:8px;letter-spacing:1.1px;fill:var(--muted);opacity:.6}
+.pitch-art-connection{stroke:var(--cyan);stroke-width:1.4;stroke-dasharray:4 6;opacity:.65}
+.pitch-art-connected-lamp{animation:pitch-art-appear 1.1s .12s both}
+.pitch-art-connected-drill{animation:pitch-art-appear 1.1s .25s both}
+.pitch-art-light-rays{stroke:var(--cyan);stroke-width:.9;stroke-dasharray:3 5;opacity:.6}
+.pitch-art-pulse{fill:var(--cyan);stroke:none;opacity:0;offset-rotate:0deg;animation:pitch-art-flow 2.4s .2s ease-in-out both}
+.pitch-art-pulse-light{offset-path:path('M278 243C330 243 329 169 389 169')}
+.pitch-art-pulse-energy{offset-path:path('M252 314C321 314 322 363 386 363');animation-delay:.5s}
+.pitch-art-photo{animation:pitch-art-photo-in .9s ease both}
+.pitch-art-output{animation:pitch-art-output-in 1.2s .15s ease both}
+.pitch-art-callout-lines{stroke:var(--cyan);stroke-width:1;opacity:.65}
+.pitch-art-conversion{animation:pitch-art-labels 1.2s ease both}
+.pitch-art-travel{animation:pitch-art-travel 1.5s .3s ease both}
+.pitch-art-process{stroke:var(--cyan);stroke-width:.7;animation:pitch-art-labels 1.5s ease both}
+@keyframes pitch-art-appear{from{opacity:0;translate:0 16px}to{opacity:1;translate:0 0}}
+@keyframes pitch-art-focus{0%{opacity:0;scale:1.5}55%{opacity:1;scale:.95}100%{opacity:.8;scale:1}}
+@keyframes pitch-art-separate{from{opacity:.2;translate:0 var(--pitch-art-dy,0px)}to{opacity:1;translate:0 0}}
+@keyframes pitch-art-labels{0%,30%{opacity:0}100%{opacity:1}}
+@keyframes pitch-art-flow{0%{offset-distance:0%;opacity:0}15%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@keyframes pitch-art-photo-in{from{opacity:0;translate:-12px 0}to{opacity:1;translate:0 0}}
+@keyframes pitch-art-output-in{from{opacity:0}to{opacity:1}}
+@keyframes pitch-art-travel{0%{translate:0 0;opacity:0}30%{opacity:1}100%{translate:45px 0;opacity:0}}
+@media(max-width:700px){.pitch-art-scene{max-width:510px}.pitch-art-scene svg{stroke-width:1.3}.pitch-art-label{font-size:11px;letter-spacing:1px}.pitch-art-callouts .pitch-art-label{font-size:12px}.pitch-art-label-large{font-size:15px;letter-spacing:3px}}
+@media(prefers-reduced-motion:reduce){.pitch-art-scene *{animation:none!important;transition:none!important}.pitch-art-pulse,.pitch-art-travel{display:none}.pitch-art-cursor{opacity:.8}}
+
+/* Explore the hardware through direct manipulation. */
+.pitch-art-learning-orbit{stroke:var(--cyan);stroke-width:1;opacity:.6;animation:pitch-art-labels 1.25s ease both}
+.pitch-art-orbit-line{stroke-dasharray:5 9}
+.pitch-art-selection{stroke:var(--cyan);stroke-width:1.65;animation:pitch-art-labels 1.35s ease both}
+.pitch-art-selection-halo{stroke:var(--cyan);stroke-width:.7;stroke-dasharray:2 7;opacity:.5;animation:pitch-art-labels 1.55s ease both}
+.pitch-art-learning-leaders{stroke:var(--cyan);stroke-width:.85;opacity:.65}
+.pitch-art-learning-labels{animation:pitch-art-labels 1.65s ease both}
+.pitch-art-learning-labels .pitch-art-label:not(.pitch-art-footnote){font-size:12px;letter-spacing:1.5px}

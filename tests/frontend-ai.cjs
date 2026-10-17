@@ -55,7 +55,7 @@ async function boot({search='?view=explore&object=macbook',introGate=null,catalo
     .replace(/import\('\.\/intro-particles\.js\?v=\d+'\)/,'introModule()')
     .replace(/import\('\.\/blueprint-schema\.mjs\?v=\d+'\)/,'Promise.resolve({validateBlueprint})')
     .replace(/\}\)\(\);\s*$/, 'globalThis.test={generated,progress,state,ai,catalog,runtime,introRuntime,homeState,objects,allConcepts,allSources,render,choosePart,chooseObject,separation,openModal,closeModal,questionPanel,askQuestion,applySceneActions,contextSnapshot,contextSignature,invalidateQuestion,guardQuestionContext,apiRequest,refreshStatus,connectGemma,resizePhoto,analyzePhoto,photoModal,gemmaModal,cancelPhoto,choosePhoto,acceptPhotoFiles};})();');
-  vm.createContext(sandbox);vm.runInContext(code,sandbox);
+  vm.createContext(sandbox);vm.runInContext(fs.readFileSync(path.join(dir,'pitch-art.js'),'utf8'),sandbox);vm.runInContext(code,sandbox);
   await tick();await tick();
   if(sandbox.test.state.view==='explore'&&!catalogFailure)assert.equal(sandbox.test.runtime.status,'ready','reference explorer must boot without an API key');
   return {t:sandbox.test,doc,storage,network,urls,calls,log,photoUrls,revokedUrls,timers,advance,Element,intros,
@@ -74,19 +74,21 @@ async function boot({search='?view=explore&object=macbook',introGate=null,catalo
     const pitch=await boot({search:''});
     assert.equal(pitch.t.state.view,'pitch','bare URL opens the presentation');
     assert.equal(pitch.calls.length,0);assert.equal(pitch.intros.length,0);
-    assert.match(pitch.html(),/We spend hours/);
-    pitch.click('pitch-back');assert.match(pitch.html(),/We spend hours/);
+    assert.match(pitch.html(),/You use it/);assert.match(pitch.html(),/pitch-art-scene--outside/);
+    pitch.click('pitch-back');assert.match(pitch.html(),/You use it/);
     const key=key=>pitch.dispatch('keydown',{key,target:{matches:()=>false,closest:()=>null},preventDefault(){}});
-    key('ArrowRight');assert.match(pitch.html(),/what happens inside/);
-    key('ArrowLeft');assert.match(pitch.html(),/We spend hours/);
+    key('ArrowRight');assert.match(pitch.html(),/What’s happening/);assert.match(pitch.html(),/pitch-art-scene--inside/);
+    key('ArrowLeft');assert.match(pitch.html(),/You use it/);
     for(let i=0;i<3;i++)pitch.click('pitch-next');
-    assert.match(pitch.html(),/MEET THE OBJECT ATLAS/);
+    assert.match(pitch.html(),/Learn hardware/);assert.match(pitch.html(),/The engaging way/);
+    assert.match(pitch.html(),/Slide 4 of 5/);
+    pitch.click('pitch-next');assert.match(pitch.html(),/FROM CURIOSITY TO UNDERSTANDING/);
     pitch.click('pitch-next');await tick();assert.equal(pitch.t.state.view,'home');
     assert.match(pitch.html(),/home-photo-upload/);assert.equal(pitch.intros.length,1);
-    pitch.click('view','pitch');assert.match(pitch.html(),/We spend hours/);
+    pitch.click('view','pitch');assert.match(pitch.html(),/You use it/);
     key('Escape');assert.equal(pitch.t.state.view,'home');
     const failed=await boot({search:'?view=pitch',catalogFailure:true});
-    assert.equal(failed.t.state.view,'pitch');assert.match(failed.html(),/We spend hours/);
+    assert.equal(failed.t.state.view,'pitch');assert.match(failed.html(),/You use it/);
     failed.click('pitch-skip');assert.equal(failed.t.state.view,'home');
     assert.match(failed.html(),/Example objects could not load/);
   }

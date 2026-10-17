@@ -24,7 +24,8 @@ UNFOLD turns an object into something you can investigate. Start with a photo, g
 - **Interactive 3D:** rotate, zoom, separate the assembly, select components, and inspect their relationships.
 - **Connected learning:** explore shared ideas such as light, energy storage, heat transfer, and electromagnetism across objects.
 - **Three curated examples:** a 2021 14-inch MacBook Pro, an articulated LED desk lamp, and a cordless drill.
-- **A photo-first opening screen:** particles morph between the three examples, with pause controls and reduced-motion support.
+- **Presentation introduction:** five screens with animated blueprint illustrations, including “Learn hardware. The engaging way.” Navigate with the arrow buttons or keyboard, then enter the demo.
+- **Photo upload screen:** particles morph between the three examples, with pause controls and reduced-motion support.
 - **Three visual themes:** Blueprint, Paper, and Graphite.
 
 ## Run locally
@@ -52,7 +53,7 @@ Optional local configuration: copy `.env.example` to `.env`. `GEMINI_API_KEY` su
 
 ## Demo flow
 
-1. Advance through the four introduction screens with the arrow button or Right Arrow key. The final screen opens the photo upload page with morphing dotted blueprints. Use **Play introduction** on Home to replay; `?view=home` opens the upload page directly.
+1. Advance through the five introduction screens with the arrow button or Right Arrow key. The final screen opens the photo upload page with morphing dotted blueprints. Use **Play introduction** on Home to replay; `?view=home` opens the upload page directly.
 2. Open **MacBook**, select a part, unfold the assembly, and follow a shared principle into the lamp or drill.
 3. Return **Home** and choose a clear photo of one object on a plain background.
 4. Select **Generate blueprint**, then rotate the resulting study and open one of its parts.
@@ -72,7 +73,7 @@ The three curated models are authored procedural examples. Uploaded photos produ
 
 | Area | Implementation |
 | --- | --- |
-| Interface | HTML, CSS, JavaScript, Canvas 2D particles |
+| Interface | HTML, CSS, JavaScript, SVG illustrations, Canvas 2D particles |
 | Interactive geometry | Three.js r180, OrbitControls, procedural assemblies |
 | AI | Gemma 4 through the Gemini REST API |
 | Portable backend | Node.js built-ins, Web Request/Response API |
@@ -83,6 +84,7 @@ The three curated models are authored procedural examples. Uploaded photos produ
 - `public/app.js`, `public/interface.css` — interface, upload flow, connection settings, and scene actions.
 - `public/viewer.js`, `object-models.js`, `generated-model.js` — curated and generated 3D assemblies.
 - `public/intro-particles.js` — deterministic point clouds and morph animation.
+- `public/pitch-art.js`, `public/pitch-art.css` — original SVG illustrations and finite animations for the presentation introduction.
 - `public/blueprint-schema.mjs` — shared bounds and geometry validation.
 - `public/content.json`, `objects.json` — curated learning material and reference links.
 - `lib/gemma.mjs`, `photo-blueprint.mjs` — provider adapter, prompts, retries, validation, and normalization.
