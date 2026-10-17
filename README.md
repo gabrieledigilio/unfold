@@ -1,12 +1,16 @@
+# [▶ Open the live demo — UNFOLD](https://unfold-object-lab.epicfawn1.chatgpt.site/?theme=blueprint&view=home)
+
+**Public demo — ready to explore in your browser.** The MacBook, lamp, and drill examples work immediately. To generate a blueprint from a photo or ask Gemma a question, connect your own API key in the demo.
+
+---
+
 # UNFOLD
 
 **See how it works.** Turn a photo of an everyday object into an interactive blueprint, then explore its parts, physics, and construction.
 
 Built for **Hacktoberfest Hack Day Milano × Coding Bunker — 17 October 2026**. Powered by **Gemma 4**.
 
-[Hosted prototype](https://unfold-object-lab.epicfawn1.chatgpt.site/?theme=blueprint&view=home) · [Gemma documentation](https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api) · [MIT license](LICENSE)
-
-The hosted prototype currently has restricted access. The complete application runs locally from this public repository using the instructions below.
+[Gemma documentation](https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api) · [MIT license](LICENSE)
 
 ## The problem
 
