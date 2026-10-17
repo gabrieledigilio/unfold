@@ -1,4 +1,4 @@
-# [▶ Open the live demo — UNFOLD](https://unfold-object-lab.epicfawn1.chatgpt.site/?theme=blueprint&view=home)
+# [▶ Open the live demo — UNFOLD](https://unfold-object-lab.epicfawn1.chatgpt.site/?theme=blueprint&view=pitch)
 
 **Public demo — ready to explore in your browser.** The MacBook, lamp, and drill examples work immediately. To generate a blueprint from a photo or ask Gemma a question, connect your own API key in the demo.
 
@@ -52,7 +52,7 @@ Optional local configuration: copy `.env.example` to `.env`. `GEMINI_API_KEY` su
 
 ## Demo flow
 
-1. Open the starting screen and show the morphing dotted blueprints.
+1. Advance through the four introduction screens with the arrow button or Right Arrow key. The final screen opens the photo upload page with morphing dotted blueprints. Use **Play introduction** on Home to replay; `?view=home` opens the upload page directly.
 2. Open **MacBook**, select a part, unfold the assembly, and follow a shared principle into the lamp or drill.
 3. Return **Home** and choose a clear photo of one object on a plain background.
 4. Select **Generate blueprint**, then rotate the resulting study and open one of its parts.

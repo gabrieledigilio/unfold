@@ -71,8 +71,28 @@ async function boot({search='?view=explore&object=macbook',introGate=null,catalo
 
 (async()=>{
   {
-  const home=await boot({search:''}), start=home.t;
-  assert.equal(start.state.view,'home','bare URL opens the upload screen');
+    const pitch=await boot({search:''});
+    assert.equal(pitch.t.state.view,'pitch','bare URL opens the presentation');
+    assert.equal(pitch.calls.length,0);assert.equal(pitch.intros.length,0);
+    assert.match(pitch.html(),/We spend hours/);
+    pitch.click('pitch-back');assert.match(pitch.html(),/We spend hours/);
+    const key=key=>pitch.dispatch('keydown',{key,target:{matches:()=>false,closest:()=>null},preventDefault(){}});
+    key('ArrowRight');assert.match(pitch.html(),/what happens inside/);
+    key('ArrowLeft');assert.match(pitch.html(),/We spend hours/);
+    for(let i=0;i<3;i++)pitch.click('pitch-next');
+    assert.match(pitch.html(),/MEET THE OBJECT ATLAS/);
+    pitch.click('pitch-next');await tick();assert.equal(pitch.t.state.view,'home');
+    assert.match(pitch.html(),/home-photo-upload/);assert.equal(pitch.intros.length,1);
+    pitch.click('view','pitch');assert.match(pitch.html(),/We spend hours/);
+    key('Escape');assert.equal(pitch.t.state.view,'home');
+    const failed=await boot({search:'?view=pitch',catalogFailure:true});
+    assert.equal(failed.t.state.view,'pitch');assert.match(failed.html(),/We spend hours/);
+    failed.click('pitch-skip');assert.equal(failed.t.state.view,'home');
+    assert.match(failed.html(),/Example objects could not load/);
+  }
+  {
+  const home=await boot({search:'?view=home'}), start=home.t;
+  assert.equal(start.state.view,'home','explicit home URL opens the upload screen');
   assert.equal(home.calls.length,0,'home does not create the interactive WebGL explorer');
   assert.equal(home.intros.length,1,'catalog and connection refreshes reuse the intro instance');
   assert.match(home.html(),/id="home-photo-upload" type="file"/);
@@ -111,18 +131,18 @@ async function boot({search='?view=explore&object=macbook',introGate=null,catalo
   assert.equal(start.state.view,'explore');assert.equal(start.runtime.instance.objectId,'drill');assert.equal(intro.disposed,true);
   home.click('view','home');await tick();assert.equal(start.runtime.instance,null);assert.equal(home.intros.length,2);
   home.pop('?object=lamp&part=led');await tick();assert.equal(start.state.view,'explore');assert.equal(start.state.part,'led');
-  home.pop('');await tick();assert.equal(start.state.view,'home');assert.equal(start.runtime.instance,null);
+  home.pop('?view=home');await tick();assert.equal(start.state.view,'home');assert.equal(start.runtime.instance,null);
   const implicit=await boot({search:'?object=drill&part=motor'});assert.equal(implicit.t.state.view,'explore');assert.equal(implicit.t.state.part,'motor');
   const explicitHome=await boot({search:'?view=home&object=macbook'});assert.equal(explicitHome.t.state.view,'home');assert.equal(explicitHome.calls.length,0);
   for(const view of ['atlas','collection']){const routed=await boot({search:'?view='+view});assert.equal(routed.t.state.view,view);assert.equal(routed.intros.length,0);}
-  const gate=deferred(),loadingIntro=await boot({search:'',introGate:gate});
+  const gate=deferred(),loadingIntro=await boot({search:'?view=home',introGate:gate});
   loadingIntro.click('object','lamp');gate.resolve();await tick();
   assert.equal(loadingIntro.intros.length,0,'late animation import cannot mount on the explorer');
   loadingIntro.click('view','home');await tick();assert.equal(loadingIntro.intros.length,1);
-  const brokenGate=deferred(),fallback=await boot({search:'',introGate:brokenGate});brokenGate.reject(new Error('Unavailable'));await tick();
+  const brokenGate=deferred(),fallback=await boot({search:'?view=home',introGate:brokenGate});brokenGate.reject(new Error('Unavailable'));await tick();
   assert.equal(fallback.t.introRuntime.status,'failed');fallback.change('home-photo-upload',[upload]);
   assert.equal(fallback.t.state.modal,'photo','file upload remains available if animation cannot load');
-  const missingCatalog=await boot({search:'',catalogFailure:true});
+  const missingCatalog=await boot({search:'?view=home',catalogFailure:true});
   assert.equal(missingCatalog.t.state.view,'home');assert.match(missingCatalog.html(),/Example objects could not load/);
   missingCatalog.change('home-photo-upload',[upload]);assert.equal(missingCatalog.t.state.modal,'photo','upload remains available if references cannot load');
   missingCatalog.t.closeModal();missingCatalog.click('view','collection');missingCatalog.click('view','explore');
@@ -193,7 +213,7 @@ async function boot({search='?view=explore&object=macbook',introGate=null,catalo
   ],connections:[{from:'cup-body',to:'cup-handle',label:'Transfers the weight <script>unsafe()</script>'},{from:'cup-body',to:'cup-liner',label:'Protects the porous surface'}]};
   const analysis={identification:'Coffee cup',match:'unsupported',objectId:null,summary:'A cup with a handle is visible.',visibleParts:['handle','rim'],blueprint,model:'gemma-4-26b-a4b-it'};
   const file={name:'private-cup-photo.jpg',type:'image/jpeg',size:100000};
-  const referenceGate=deferred(),earlyPhoto=await boot({search:'',catalogGate:referenceGate,catalogFailure:true});
+  const referenceGate=deferred(),earlyPhoto=await boot({search:'?view=home',catalogGate:referenceGate,catalogFailure:true});
   earlyPhoto.change('home-photo-upload',[file]);earlyPhoto.t.ai.key=key;earlyPhoto.setFetch(()=>response(analysis));
   await earlyPhoto.t.analyzePhoto();await tick();
   assert.equal(earlyPhoto.t.state.object,'generated','home can generate while reference files are still loading');
